@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Вход</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <main class="container narrow">
+      <h1>Вход</h1>
+
+      <form id="loginForm" class="form-card">
+        <label>
+          E-mail
+          <input type="email" id="email" required />
+        </label>
+        <label>
+          Пароль
+          <input type="password" id="password" required minlength="8" />
+        </label>
+        <div class="row">
+          <button class="primary" type="submit">Войти</button>
+          <a class="secondary-link" href="#" id="btnGoRegister">Регистрация</a>
+        </div>
+        <div id="loginError" class="error muted"></div>
+      </form>
+
+      <form id="registerForm" class="form-card" style="display:none">
+        <label>
+          E-mail
+          <input type="email" id="regEmail" required />
+        </label>
+        <label>
+          Пароль
+          <input type="password" id="regPassword" required minlength="8" />
+        </label>
+        <div class="row">
+          <button class="primary" type="submit">Зарегистрироваться</button>
+          <a class="secondary-link" href="#" id="btnGoLogin">Уже есть аккаунт</a>
+        </div>
+        <div id="registerError" class="error muted"></div>
+      </form>
+    </main>
+
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script>
+      window.__PAGE__ = "login";
+    </script>
+  </body>
+</html>
+

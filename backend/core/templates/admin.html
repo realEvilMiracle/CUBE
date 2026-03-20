@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Админ панель</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-title">Админ</div>
+      <nav>
+        <a href="/" id="navHome">На сайт</a>
+        <a href="/qr/">QR</a>
+        <button id="btnLogoutAdmin" class="link-button" style="display:none">Выйти</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="panel">
+        <h2>Отчеты</h2>
+        <div class="grid3" id="statsCards"></div>
+        <h3>Топ тегов</h3>
+        <div id="topTags" class="muted"></div>
+
+        <h3>Агрегаты по категориям</h3>
+        <div id="byCategory" class="muted"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Управление справочниками</h2>
+        <div class="grid2">
+          <form id="categoryCreateForm" class="form-card">
+            <h3>Категория</h3>
+            <label>
+              Название
+              <input type="text" id="catName" />
+            </label>
+            <label>
+              Slug (опц.)
+              <input type="text" id="catSlug" />
+            </label>
+            <button class="primary" type="submit">Создать</button>
+            <div id="catCreateError" class="error muted"></div>
+          </form>
+
+          <form id="tagCreateForm" class="form-card">
+            <h3>Тег</h3>
+            <label>
+              Название
+              <input type="text" id="tagName" />
+            </label>
+            <button class="primary" type="submit">Создать</button>
+            <div id="tagCreateError" class="error muted"></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Пользователи (admin)</h2>
+        <div id="usersList" class="muted"></div>
+      </section>
+    </main>
+
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/admin.js"></script>
+  </body>
+</html>
+

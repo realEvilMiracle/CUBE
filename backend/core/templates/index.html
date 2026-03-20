@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Галерея фото</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-title">Фотоархив</div>
+      <nav>
+        <a href="/qr/">QR</a>
+        <a href="/login/" id="navLogin">Вход</a>
+        <a href="/admin-panel/" id="navAdmin" style="display:none">Админ</a>
+        <button id="btnLogout" class="link-button" style="display:none">Выйти</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="panel">
+        <h2>Поиск и фильтры</h2>
+        <div class="grid2">
+          <label>
+            Ключевые слова
+            <input type="text" id="qInput" placeholder="например: природа, портреты" />
+          </label>
+          <label>
+            Категория
+            <select id="categorySelect">
+              <option value="">(любая)</option>
+            </select>
+          </label>
+        </div>
+        <div class="grid2">
+          <label>
+            Теги (через запятую)
+            <input type="text" id="tagsInput" placeholder="лето, события" />
+          </label>
+          <label>
+            Тип файла
+            <select id="fileTypeSelect">
+              <option value="">(любой)</option>
+              <option value="jpeg">JPEG</option>
+              <option value="png">PNG</option>
+              <option value="webp">WEBP</option>
+            </select>
+          </label>
+        </div>
+        <div class="grid2">
+          <label>
+            Сортировка
+            <select id="sortSelect">
+              <option value="uploaded_at_desc">Сначала новые</option>
+              <option value="uploaded_at_asc">Сначала старые</option>
+              <option value="file_size_desc">Размер по убыванию</option>
+              <option value="file_size_asc">Размер по возрастанию</option>
+            </select>
+          </label>
+          <label>
+            Показов на страницу
+            <input type="number" id="pageSizeInput" value="24" min="1" max="100" />
+          </label>
+        </div>
+
+        <div class="row">
+          <button id="btnSearch" class="primary">Найти</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Загрузка</h2>
+        <div id="dropZone" class="dropzone">
+          <div>Перетащите фото сюда или выберите файлы</div>
+          <input id="fileInput" type="file" accept="image/*" multiple style="display:none" />
+          <button id="btnPickFiles" type="button" class="secondary">Выбрать</button>
+        </div>
+
+        <form id="uploadForm" class="upload-form">
+          <label>
+            Категория
+            <select id="uploadCategorySelect">
+              <option value="">(без категории)</option>
+            </select>
+          </label>
+          <label>
+            Теги (через запятую)
+            <input type="text" id="uploadTagsInput" placeholder="например: зима, события" />
+          </label>
+          <div class="row">
+            <button id="btnUpload" class="primary" type="submit">Загрузить</button>
+          </div>
+          <div id="uploadStatus" class="muted"></div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Результаты</h2>
+        <div id="photosGrid" class="photos-grid"></div>
+        <div class="row space-between">
+          <button id="btnPrev" class="secondary">Назад</button>
+          <div id="paginationInfo" class="muted"></div>
+          <button id="btnNext" class="secondary">Дальше</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
+

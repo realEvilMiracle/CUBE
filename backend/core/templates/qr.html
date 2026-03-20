@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>QR-код</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-title">QR-код</div>
+      <nav>
+        <a href="/">На главную</a>
+      </nav>
+    </header>
+
+    <main class="container narrow">
+      <section class="panel">
+        <h2>Генерация QR</h2>
+        <label>
+          Ссылка (data)
+          <input id="qrData" type="text" placeholder="https://example.com/..." />
+        </label>
+        <div class="grid2" style="margin-top:12px">
+          <label>
+            Сезон
+            <select id="qrSeason">
+              <option value="auto">auto</option>
+              <option value="winter">winter</option>
+              <option value="spring">spring</option>
+              <option value="summer">summer</option>
+              <option value="autumn">autumn</option>
+            </select>
+          </label>
+          <div class="row" style="align-items:end">
+            <button id="btnQr" class="primary" type="button">Сгенерировать</button>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; text-align:center">
+          <img id="qrImg" alt="QR" style="max-width:320px; width:100%; display:none" />
+        </div>
+        <div id="qrErr" class="error muted"></div>
+      </section>
+    </main>
+
+    <script src="/static/js/theme.js"></script>
+    <script>
+      // Пытаемся подставить текущий URL, чтобы QR сразу имел смысл.
+      const input = document.getElementById("qrData");
+      if (input && !input.value) input.value = location.origin + "/qr/";
+    </script>
+    <script src="/static/js/qr.js"></script>
+  </body>
+</html>
+
